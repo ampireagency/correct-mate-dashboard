@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Assessments {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  subject    String
+  uploadedAt DateTime @default(now())
+  date       DateTime
+  answerKey  String?
+  driveLink  String
+  fileURL    String
+  reviewed   Boolean  @default(false)
+}
