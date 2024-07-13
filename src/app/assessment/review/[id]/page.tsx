@@ -6,15 +6,15 @@ import { mockData } from "@/lib/mockdata";
 
 interface Params {
   params: {
-    slug: string;
+    id: string;
   };
 }
 
 const AssessmentPage = async ({ params }: Params) => {
-  const { slug } = params;
+  const { id } = params;
   const assessments = await db.assessments.findMany({
     where: {
-      id: slug,
+      id: id,
     },
     select: {
       subject: true,
@@ -66,12 +66,14 @@ const AssessmentPage = async ({ params }: Params) => {
                 {"Your Suggestions :"}
               </h1>
             </div>
-            <div className=" h-full">
-              <textarea className="rounded-lg bg-gray-100 p-3 shadow h-[270px] w-full outline-slate-300 outline outline-1"  />
+            <div className="h-full">
+              <textarea className="h-[270px] w-full rounded-lg bg-gray-100 p-3 shadow outline outline-1 outline-slate-300" />
             </div>
           </div>
         </div>
-        <div className="h-full w-1/2 border bg-slate-200 rounded-lg p-2">pdf viewer</div>
+        <div className="h-full w-1/2 rounded-lg border bg-slate-200 p-2">
+          pdf viewer
+        </div>
       </div>
     </section>
   );

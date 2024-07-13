@@ -7,15 +7,15 @@ import Link from "next/link";
 
 interface Params {
   params: {
-    slug: string;
+    id: string;
   };
 }
 
 const AsessmentPage = async ({ params }: Params) => {
-  const { slug } = params;
-  const assessments = await db.assessments.findMany({
+  const { id } = params;
+  const assessments = await db.assessments.findFirst({
     where: {
-      id: slug,
+      id: id,
     },
     select: {
       subject: true,
@@ -26,8 +26,6 @@ const AsessmentPage = async ({ params }: Params) => {
       reviewed: true,
     },
   });
-
-  const fetchedassessments = await assessments[0];
 
   return (
     <section className="flex h-full w-full flex-col text-black">
@@ -51,12 +49,13 @@ const AsessmentPage = async ({ params }: Params) => {
           <div className="flex w-1/2 justify-between pl-20 pr-10">
             <div>
               <div className="font-medium capitalize">{"Subject Name:"}</div>
-              <div className="capitalize">{fetchedassessments.subject}</div>
+              <div className="capitalize">{assessments?.subject}</div>
             </div>
             <div>
               <div className="font-medium capitalize">{"date:"}</div>
               <div>
-                {new Date(fetchedassessments.date).toLocaleDateString()}
+                {assessments?.date &&
+                  new Date(assessments.date).toLocaleDateString()}
               </div>
             </div>
           </div>
@@ -92,38 +91,35 @@ const AsessmentPage = async ({ params }: Params) => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200 bg-white">
-              {assessments?.map((assessment, i) => {
-                return (
-                  <tr key={i}>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-                      ROLL0{i + 1}
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
-                      {new Date(assessment.date).toLocaleDateString()}
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
-                      {assessment.subject}
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-gray-500">
-                      {assessment.reviewed ? (
-                        <span className="rounded-lg border border-primary bg-green-50 py-1 text-primary">
-                          Reviewed
-                        </span>
-                      ) : (
-                        <span className="rounded-lg border border-blue-500 bg-blue-50 px-3 py-1 text-blue-500">
-                          In progress
-                        </span>
-                      )}
-                      <Link
-                        href={`/assessment/review/${assessment.id}`}
-                        className="ml-4 rounded-lg border border-blue-500 bg-blue-50 px-3 py-1 text-blue-500"
-                      >
-                        View
-                      </Link>
-                    </td>
-                  </tr>
-                );
-              })}
+              <tr>
+                <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
+                  ROLL0{1}
+                </td>
+                <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                  {assessments?.date &&
+                    new Date(assessments.date).toLocaleDateString()}
+                </td>
+                <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                  {assessments?.subject}
+                </td>
+                <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-gray-500">
+                  {assessments?.reviewed ? (
+                    <span className="rounded-lg border border-primary bg-green-50 py-1 text-primary">
+                      Reviewed
+                    </span>
+                  ) : (
+                    <span className="rounded-lg border border-blue-500 bg-blue-50 px-3 py-1 text-blue-500">
+                      In progress
+                    </span>
+                  )}
+                  <Link
+                    href={`/assessment/review/${assessments?.id}`}
+                    className="ml-4 rounded-lg border border-blue-500 bg-blue-50 px-3 py-1 text-blue-500"
+                  >
+                    View
+                  </Link>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
