@@ -10,7 +10,7 @@ interface Params {
   };
 }
 
-const AssessmentPage = async ({ params }: Params) => {
+const ReviewPage = async ({ params }: Params) => {
   const { id } = params;
   const assessments = await db.assessments.findMany({
     where: {
@@ -83,4 +83,4 @@ const AssessmentPage = async ({ params }: Params) => {
   );
 };
 
-export default AssessmentPage;
+export default ReviewPage;

@@ -17,7 +17,7 @@ const TableRow = ({ assessment, index }: { assessment: Assessments, index:number
       <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
         {new Date(assessment.date).toLocaleDateString()}
       </td>
-      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500 capitalize">
         {assessment.subject}
       </td>
       <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-gray-500">
