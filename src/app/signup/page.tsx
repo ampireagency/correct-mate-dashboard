@@ -1,9 +1,7 @@
-"use client";
-import { useRouter } from "next/navigation";
 import React from "react";
+import Btn from "./signup-btn";
 
 const page = () => {
-  const router = useRouter();
   return (
     <div className="flex min-h-[80vh] items-center justify-center">
       <div className="mt-7 w-full max-w-lg rounded-xl border border-gray-200 bg-white shadow-sm">
@@ -121,12 +119,7 @@ const page = () => {
                   </div>
                 </div>
                 {/* End Checkbox */}
-                <button
-                  onClick={() => router.push("/assessment")}
-                  className="inline-flex w-full items-center justify-center gap-x-2 rounded-lg border border-transparent bg-green-500 px-4 py-3 text-sm font-semibold text-white hover:bg-green-500 disabled:pointer-events-none disabled:opacity-50"
-                >
-                  Sign in
-                </button>
+                <Btn/>
               </div>
             {/* </form> */}
             {/* End Form */}
