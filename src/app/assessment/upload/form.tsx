@@ -31,7 +31,7 @@ const Form = () => {
       formData.set("fileURL", fileURL);
 
       await action(formData);
-      await router.push("/");
+      await router.push("/assessment");
       setTimeout(() => {
         router.refresh();
       }, 3000); // Delay refresh by 3 seconds

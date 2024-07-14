@@ -42,19 +42,23 @@ const ReviewPage = async ({ params }: Params) => {
       <div className="flex size-full">
         <div className="h-full w-1/2 p-1">
           <div className="flex items-center gap-3">
-            <img
+            {/* <img
               className="inline-block size-[46px] rounded-full"
               src="/ai.png"
               alt="Image Description"
-            />
+            /> */}
             <h1 className="text-xl font-medium">{"AI result :"}</h1>
           </div>
           <div className="mt-4">
             {mockData.messages.map((msg, index) => (
-              <div key={index} className="mb-2">
-                <div className="flex flex-col gap-4 rounded-lg bg-gray-100 p-3 shadow">
+              <div key={index} className="mb-4">
+                <div className="flex h-[250px] flex-col gap-4 overflow-y-scroll rounded-lg bg-gray-100 p-3 shadow">
                   {msg.message.split("\n").map((char, i) => {
-                    return <span key={i}>{char}</span>;
+                    return (
+                      <span key={i} className="">
+                        {char}
+                      </span>
+                    );
                   })}
                 </div>
               </div>

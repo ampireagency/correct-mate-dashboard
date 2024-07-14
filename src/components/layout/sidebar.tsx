@@ -20,6 +20,10 @@ const SideBar = ({ children }: PropsWithChildren) => {
     },
   ];
 
+  if (pathname === "/login" || pathname === "/signup" || pathname=== "/") {
+    return <>{children}</>;
+  }
+
   return (
     <div className="flex h-dvh items-start justify-start gap-3 bg-green-700 p-3">
       <div className="w-[300px] p-2 text-background">

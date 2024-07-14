@@ -38,13 +38,6 @@ export const uploadAssessment = async (
   const date = new Date(dateString);
 
   try {
-    // console.log("Uploading project with data:", {
-    //   subject,
-    //   answerKey,
-    //   date: date.toISOString(),
-    //   driveLink,
-    //   fileURL,
-    // });
 
     await db.assessments.create({
       data: {

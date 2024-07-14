@@ -17,3 +17,9 @@ model Assessments {
   fileURL    String
   reviewed   Boolean  @default(false)
 }
+
+model User {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  email        String @unique
+  hashPassword String
+}
