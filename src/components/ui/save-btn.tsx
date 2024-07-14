@@ -10,11 +10,11 @@ const SaveBtn = ({ id, reviewed }: { id: string; reviewed: boolean }) => {
   return (
     <button
       aria-disabled={isPending}
-      disabled={isPending}
+      disabled={ isPending || reviewed === true}
       onClick={() => {
         startTransition(async () => {
           await toggleReview(id, !reviewed);
-          router.push("/");
+          router.push("/assessment");
           setTimeout(() => {
             router.refresh();
           }, 3000); // Delay refresh by 3 seconds

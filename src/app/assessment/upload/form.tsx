@@ -153,7 +153,7 @@ const Form = () => {
       <div className="flex gap-3">
         <button
           onClick={() => {
-            router.push("/");
+            router.push("/assessment");
           }}
           className="rounded-xl bg-muted-foreground/40 px-4 py-2 capitalize text-foreground"
         >

@@ -34,7 +34,7 @@ const AsessmentPage = async ({ params }: Params) => {
           Assessments
         </h1>
         <CustomLink
-          path={"/"}
+          path={"/assessment"}
           className="gap-2 border border-black bg-primary capitalize text-muted"
         >
           back
