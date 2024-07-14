@@ -32,6 +32,9 @@ const Form = () => {
 
       await action(formData);
       await router.push("/");
+      setTimeout(() => {
+        router.refresh();
+      }, 3000); // Delay refresh by 3 seconds
     } catch (error) {
       console.error("Error uploading image:", error);
     }
@@ -148,7 +151,12 @@ const Form = () => {
         <p className="text-sm text-red-500">{state.errors.fileURL}</p>
       )}
       <div className="flex gap-3">
-        <button className="rounded-xl bg-muted-foreground/40 px-4 py-2 capitalize text-foreground">
+        <button
+          onClick={() => {
+            router.push("/");
+          }}
+          className="rounded-xl bg-muted-foreground/40 px-4 py-2 capitalize text-foreground"
+        >
           discard
         </button>
         <button

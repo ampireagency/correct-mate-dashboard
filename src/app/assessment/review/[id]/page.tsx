@@ -71,8 +71,12 @@ const AssessmentPage = async ({ params }: Params) => {
             </div>
           </div>
         </div>
-        <div className="h-full w-1/2 rounded-lg border bg-slate-200 p-2">
-          pdf viewer
+        <div className="h-full w-1/2 rounded-lg border p-2">
+          <embed
+            src={fetchedAssessment.fileURL}
+            type="application/pdf"
+            className="h-full w-full"
+          />
         </div>
       </div>
     </section>

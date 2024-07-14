@@ -21,11 +21,15 @@ const SideBar = ({ children }: PropsWithChildren) => {
   ];
 
   return (
-    <div className="flex h-screen items-start justify-start gap-3 bg-green-700 p-3">
+    <div className="flex h-dvh items-start justify-start gap-3 bg-green-700 p-3">
       <div className="w-[300px] p-2 text-background">
         <div className="flex flex-col gap-y-3 pt-20 capitalize">
           <div className="flex w-full items-center justify-center pb-8">
-            <img src="/logo.png" alt="Profile picture" className=" object-cover" />
+            <img
+              src="/logo.png"
+              alt="Profile picture"
+              className="object-cover"
+            />
           </div>
           {sidenavigations.map(({ title, path, icon }) => {
             const isActive =

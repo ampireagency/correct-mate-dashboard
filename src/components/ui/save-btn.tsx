@@ -1,15 +1,12 @@
 "use client";
 import { toggleReview } from "@/app/assessment/upload/action";
+import { useRouter } from "next/navigation";
 import React, { useTransition } from "react";
 
-const SaveBtn = ({
-  id,
-  reviewed,
-}: {
-  id: string;
-  reviewed: boolean;
-}) => {
+const SaveBtn = ({ id, reviewed }: { id: string; reviewed: boolean }) => {
   const [isPending, startTransition] = useTransition();
+  const router = useRouter();
+
   return (
     <button
       aria-disabled={isPending}
@@ -17,9 +14,13 @@ const SaveBtn = ({
       onClick={() => {
         startTransition(async () => {
           await toggleReview(id, !reviewed);
+          router.push("/");
+          setTimeout(() => {
+            router.refresh();
+          }, 3000); // Delay refresh by 3 seconds
         });
       }}
-      className=" rounded-xl px-4 py-2 gap-2 border border-black bg-primary capitalize text-muted"
+      className="gap-2 rounded-xl border border-black bg-primary px-4 py-2 capitalize text-muted"
     >
       <span className="">{reviewed ? "Saved" : "Save"}</span>
     </button>

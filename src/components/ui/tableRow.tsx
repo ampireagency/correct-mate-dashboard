@@ -22,7 +22,7 @@ const TableRow = ({ assessment, index }: { assessment: Assessments, index:number
       </td>
       <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-gray-500">
         {assessment.reviewed ? (
-          <span className="rounded-lg border border-primary bg-green-50 py-1 text-primary">
+          <span className="rounded-lg border border-primary bg-green-50 px-3 py-1 text-primary">
             Reviewed
           </span>
         ) : (
