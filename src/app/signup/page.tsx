@@ -1,6 +1,9 @@
+"use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const page = () => {
+  const router = useRouter();
   return (
     <div className="flex min-h-[80vh] items-center justify-center">
       <div className="mt-7 w-full max-w-lg rounded-xl border border-gray-200 bg-white shadow-sm">
@@ -19,7 +22,7 @@ const page = () => {
           </div>
           <div className="mt-5">
             {/* Form */}
-            <form>
+            {/* <form> */}
               <div className="grid gap-y-4">
                 {/* Form Group */}
                 <div>
@@ -119,13 +122,13 @@ const page = () => {
                 </div>
                 {/* End Checkbox */}
                 <button
-                  type="submit"
+                  onClick={() => router.push("/assessment")}
                   className="inline-flex w-full items-center justify-center gap-x-2 rounded-lg border border-transparent bg-green-500 px-4 py-3 text-sm font-semibold text-white hover:bg-green-500 disabled:pointer-events-none disabled:opacity-50"
                 >
                   Sign in
                 </button>
               </div>
-            </form>
+            {/* </form> */}
             {/* End Form */}
           </div>
         </div>
