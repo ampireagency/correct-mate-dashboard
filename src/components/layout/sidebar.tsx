@@ -20,6 +20,7 @@ const SideBar = ({ children }: PropsWithChildren) => {
     },
   ];
 
+  // Hide sidebar if user is on login, signup, or home page
   if (pathname === "/login" || pathname === "/signup" || pathname=== "/") {
     return <>{children}</>;
   }
