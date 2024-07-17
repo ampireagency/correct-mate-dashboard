@@ -2,13 +2,14 @@ import Contact from "@/components/ui/contact";
 import ProcessSteps from "@/components/ui/process-steps";
 import { features } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="bg-white">
-      <div className="relative isolate px-6 pt-8 lg:pt-14 lg:px-8">
-        <div className="mx-auto flex max-w-full flex-col-reverse lg:flex-row w-full py-12 sm:py-12 lg:py-24">
-          <div className="flex items-center justify-center lg:justify-end lg:w-1/4">
+      <div className="relative isolate px-6 pt-8 lg:px-8 lg:pt-14">
+        <div className="mx-auto flex w-full max-w-full flex-col-reverse py-12 sm:py-12 lg:flex-row lg:py-24">
+          <div className="flex items-center justify-center lg:w-1/4 lg:justify-end">
             <Image
               src={"/images/smart-people.png"}
               alt="smart"
@@ -17,20 +18,20 @@ export default function Home() {
               height={400}
             />
           </div>
-          <div className="lg:w-[75%] w-full">
-            <div className="text-center lg:text-left lg:pl-8">
-              <h1 className="text-3xl text-center leading-normal lg:leading-[4rem] font-bold tracking-tight text-gray-900 sm:text-5xl">
+          <div className="w-full lg:w-[75%]">
+            <div className="text-center lg:pl-8 lg:text-left">
+              <h1 className="text-center text-3xl font-bold leading-normal tracking-tight text-gray-900 sm:text-5xl lg:leading-[4rem]">
                 Revolutionize exam preparation with{" "}
-                <span className="bg-[#11791E] text-center lg:text-left lg:inline-block flex justify-center px-6 py-0 text-white rounded-xl mt-0">
+                <span className="mt-0 flex justify-center rounded-xl bg-[#11791E] px-6 py-0 text-center text-white lg:inline-block lg:text-left">
                   AI-Powered Assessments
                 </span>
               </h1>
-              <h2 className="text-xs font-bold text-center tracking-tight text-gray-900 sm:text-xl mt-4">
+              <h2 className="mt-4 text-center text-xs font-bold tracking-tight text-gray-900 sm:text-xl">
                 Empower Your Students with Advanced Insights and Performance
                 Analytics
               </h2>
 
-              <p className="lg:mt-6 mt-2 text-[10px] text-center lg:text-base leading-normal lg:leading-8 text-gray-600">
+              <p className="mt-2 text-center text-[10px] leading-normal text-gray-600 lg:mt-6 lg:text-base lg:leading-8">
                 Empower your students with cutting-edge technology that provides
                 advanced insights and performance analytics. Our AI-driven
                 platform enhances learning by offering personalized feedback,
@@ -38,15 +39,15 @@ export default function Home() {
                 way your students prepare for exams and help them achieve their
                 academic goals with precision and confidence.
               </p>
-              <div className="mt-10 flex flex-col lg:flex-row items-center justify-center lg:justify-center gap-4 lg:gap-x-6">
-                <a
-                  href="#contact"
+              <div className="mt-10 flex flex-col items-center justify-center gap-4 lg:flex-row lg:justify-center lg:gap-x-6">
+                <Link
+                  href="/signup"
                   className="rounded-md bg-green-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Get Started
-                </a>
+                </Link>
                 <a
-                  href="#"
+                  href="#contact"
                   className="text-sm font-semibold leading-6 text-gray-900"
                 >
                   Request a Demo <span aria-hidden="true">→</span>
@@ -54,7 +55,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-center lg:w-1/4  hidden lg:block">
+          <div className="hidden items-center justify-center lg:flex lg:w-1/4">
             <Image
               className=""
               src={"/images/online-test.png"}
@@ -67,16 +68,16 @@ export default function Home() {
 
         <div className="overflow-hidden bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto flex justify-center items-center max-w-2xl ">
+            <div className="mx-auto flex max-w-2xl items-center justify-center">
               <div className="lg:pr-8 lg:pt-4">
-                <div className="lg:max-w-lg flex justify-center items-center flex-col">
+                <div className="flex flex-col items-center justify-center lg:max-w-lg">
                   <h2 className="text-base font-semibold leading-7 text-green-500">
                     Core Features
                   </h2>
                   <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                     About the Product
                   </p>
-                  <p className="mt-6 text-lg leading-8 text-gray-600 text-ce">
+                  <p className="text-ce mt-6 text-lg leading-8 text-gray-600">
                     Our AI-powered exam assessment tool is designed to help
                     institutes enhance student performance through detailed
                     analytics and personalized feedback.
@@ -84,8 +85,8 @@ export default function Home() {
 
                   <dl className="mt-5 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                     {features.map((feature) => (
-                      <div key={feature.name} className="relative pl-9 ">
-                        <dt className="inline font-semibold text-gray-900 ">
+                      <div key={feature.name} className="relative pl-9">
+                        <dt className="inline font-semibold text-gray-900">
                           <feature.icon
                             aria-hidden="true"
                             className="absolute left-1 top-1 h-5 w-5 text-green-500"
@@ -104,19 +105,15 @@ export default function Home() {
 
         {/* <IconBlocks /> */}
         <div className="container mx-auto px-4 py-8">
-          <h1 className="text-3xl font-bold text-center mb-8">How it Work</h1>
+          <h1 className="mb-8 text-center text-3xl font-bold">How it Work</h1>
           <ProcessSteps />
         </div>
 
-        <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 mt-20">
+        <div className="mx-auto mt-20 max-w-7xl sm:px-6 lg:px-8">
           <div className="relative isolate overflow-hidden bg-white px-6 py-20 text-center sm:rounded-3xl sm:border sm:border-gray-100 sm:px-16 sm:shadow-sm">
             <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Request us for free Demo
             </h2>
-            <h3 className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-500">
-              Sign up for exclusive access to events, resources, and updates on
-              our AI-powered exam preparation assessment tool.
-            </h3>
             <div className="mt-8 flex items-center justify-center gap-x-6">
               <a
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-500 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"

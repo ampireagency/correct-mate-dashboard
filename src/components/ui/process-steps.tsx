@@ -1,3 +1,5 @@
+import React from "react";
+
 const steps = [
     {
       number: 1,
@@ -41,7 +43,7 @@ const steps = [
             <line x1="0" x2="100" y1="1" y2="1"></line>
           </svg>
           {steps.map((step) => (
-            <>
+            <React.Fragment key={step.title}>
               <div
                 key={step.number}
                 className="text-center relative p-4 rounded-lg"
@@ -63,7 +65,7 @@ const steps = [
                 <h3 className="mt-4 text-xl font-bold">{step.title}</h3>
                 <p className="mt-2 text-gray-600">{step.description}</p>
               </div>
-            </>
+            </React.Fragment>
           ))}
         </div>
       </div>

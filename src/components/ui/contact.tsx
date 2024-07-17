@@ -3,7 +3,6 @@ import React from "react";
 const Contact = () => {
   return (
     <div>
-      <>
         {/* Hire Us */}
         <div
           id="contact"
@@ -196,7 +195,6 @@ const Contact = () => {
           {/* End Grid */}
         </div>
         {/* End Hire Us */}
-      </>
     </div>
   );
 };

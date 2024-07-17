@@ -101,6 +101,9 @@ const Form = () => {
           <p className="text-sm text-red-500">{state.errors.driveLink}</p>
         )}
       </div>
+      <div>
+        {'(or)'}
+      </div>
       <div className="flex w-full items-center justify-center">
         <label
           htmlFor="fileURL"

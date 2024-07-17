@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
-
 model Assessments {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  id         String   @id @default(cuid()) 
   subject    String
   uploadedAt DateTime @default(now())
   date       DateTime
@@ -19,7 +19,7 @@ model Assessments {
 }
 
 model User {
-  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  id           String  @id @default(cuid()) 
   email        String @unique
   hashPassword String
 }
